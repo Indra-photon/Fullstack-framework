@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function BUtton() {
-  return (
-    <div>BUtton</div>
-  )
+  return <div>BUtton</div>;
 }
 
-export default BUtton
+export default BUtton;

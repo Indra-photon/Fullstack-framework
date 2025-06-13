@@ -1,95 +1,93 @@
-import React,{ StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import store from './store/store.js'
-import Home from './pages/Home.jsx'
-import AuthLayout from './layouts/AuthLayout.jsx' 
-import LogIn from './commons/LogIn.jsx'
-import SignUp from './commons/SignUp.jsx'
-import Profile from './pages/Profile.jsx'
-import VerifyEmail from './components/VerifyEmail.jsx'
-import SubscriptionPayment from './components/SubscriptionPayment.jsx'
-import PaymentConfirmation from './components/PaymentConfirmation.jsx'
-import ForgotPassword from './components/ForgotPassword.jsx'
-
-
+import React, { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './App.jsx';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store.js';
+import Home from './pages/Home.jsx';
+import AuthLayout from './layouts/AuthLayout.jsx';
+import LogIn from './commons/LogIn.jsx';
+import SignUp from './commons/SignUp.jsx';
+import Profile from './pages/Profile.jsx';
+import VerifyEmail from './components/VerifyEmail.jsx';
+import SubscriptionPayment from './components/SubscriptionPayment.jsx';
+import PaymentConfirmation from './components/PaymentConfirmation.jsx';
+import ForgotPassword from './components/ForgotPassword.jsx';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
       {
-          path: "/",
-          element: <Home />,
+        path: '/',
+        element: <Home />,
       },
       {
-        path: "/profile",
+        path: '/profile',
         element: (
           <AuthLayout authentication={true}>
-              <Profile />
+            <Profile />
           </AuthLayout>
         ),
       },
       {
-        path: "/forgot-password",
+        path: '/forgot-password',
         element: (
           <AuthLayout authentication={false}>
-              <ForgotPassword />
+            <ForgotPassword />
           </AuthLayout>
         ),
       },
       {
-        path: "/subscription-payment",
+        path: '/subscription-payment',
         element: (
           <AuthLayout authentication={false}>
-              <SubscriptionPayment />
+            <SubscriptionPayment />
           </AuthLayout>
         ),
       },
       {
-        path: "/payment-confirmation",
+        path: '/payment-confirmation',
         element: (
           <AuthLayout authentication={true}>
-              <PaymentConfirmation />
+            <PaymentConfirmation />
           </AuthLayout>
         ),
       },
       {
-        path: "/verify-email",
+        path: '/verify-email',
         element: (
-          <AuthLayout authentication={false}> 
+          <AuthLayout authentication={false}>
             <VerifyEmail />
           </AuthLayout>
         ),
       },
       {
-          path: "/login",
-          element: (
-              <AuthLayout authentication={false}>
-                  <LogIn />
-              </AuthLayout>
-          ),
+        path: '/login',
+        element: (
+          <AuthLayout authentication={false}>
+            <LogIn />
+          </AuthLayout>
+        ),
       },
       {
-          path: "/signup",
-          element: (
-              <AuthLayout authentication={false}>
-                  <SignUp />
-              </AuthLayout>
-          ),
+        path: '/signup',
+        element: (
+          <AuthLayout authentication={false}>
+            <SignUp />
+          </AuthLayout>
+        ),
       },
-  ],
-},
-])
+    ],
+  },
+]);
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </Provider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
